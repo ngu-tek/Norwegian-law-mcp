@@ -6,7 +6,7 @@
  * - Otherwise ingestion is forced to metadata + stable deep links.
  */
 
-export type LegalSource = 'lovdata' | 'lovtidend' | 'domstol';
+export type LegalSource = 'lovdata' | 'lovtidend' | 'domstol' | 'stortinget';
 
 export interface LegalDataLicensePolicy {
   source: LegalSource;
@@ -84,6 +84,27 @@ export const LEGAL_DATA_POLICIES: Record<LegalSource, LegalDataLicensePolicy> = 
       'No blanket full-text redistribution approval recorded for Norwegian court publication channels.',
     ],
     last_reviewed: '2026-02-15',
+  },
+  stortinget: {
+    source: 'stortinget',
+    rights_status: 'allowed',
+    allow_full_text_cache: true,
+    allow_full_text_redistribution: true,
+    allow_metadata_cache: true,
+    allow_deep_links: true,
+    fetch_on_demand_required: false,
+    required_attribution: 'Stortinget (data.stortinget.no) — cite Stortinget as source',
+    policy_notes: [
+      'Scope: all parliamentary documents available via data.stortinget.no Open Data API.',
+      'Covers propositions (Prop.), committee recommendations (Innst.), legislative decisions (Lovvedtak), parliamentary reports (Meld. St.), and transcripts.',
+      'Full text of publications available in XML format via the /eksport/publikasjon endpoint.',
+      'Data is public domain — free reuse with attribution.',
+    ],
+    evidence: [
+      'data.stortinget.no states: "Dataene er frie og tilgjengelig for alle, men husk å oppgi Stortinget som kilde."',
+      'Stortinget Open Data service: https://data.stortinget.no/om-datatjenesten/',
+    ],
+    last_reviewed: '2026-02-28',
   },
 };
 

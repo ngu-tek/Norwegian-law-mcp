@@ -28,6 +28,7 @@
     "ingest:cases:full-archive": "node --import tsx scripts/ingest-case-law-metadata-no.ts --full",
     "sync:cases": "node --import tsx scripts/sync-case-law-metadata-no.ts",
     "sync:cases:full": "node --import tsx scripts/sync-case-law-metadata-no.ts --full",
+    "ingest:stortinget": "node --import tsx scripts/ingest-stortinget.ts",
     "sync:prep-works": "node --import tsx scripts/sync-preparatory-works-no.ts",
     "check-updates": "node --import tsx scripts/check-updates.ts",
     "extract:definitions": "node --import tsx scripts/extract-definitions.ts",
@@ -48,6 +49,7 @@
     "@modelcontextprotocol/sdk": "^1.25.3"
   },
   "devDependencies": {
+    "better-sqlite3": "npm:@ansvar/mcp-sqlite@^1.0.3",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.15.29",
     "@vercel/node": "^5.6.3",
