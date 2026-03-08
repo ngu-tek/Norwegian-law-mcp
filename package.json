@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.15.29",
-    "@vercel/node": "^5.6.3",
+    "@vercel/node": "^4.0.0",
     "@vitest/coverage-v8": "^4.0.18",
     "fast-xml-parser": "^5.3.5",
     "jsdom": "^27.4.0",
