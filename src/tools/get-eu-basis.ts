@@ -9,6 +9,8 @@ import { generateResponseMetadata, type ToolResponse } from '../utils/metadata.j
 export interface GetEUBasisInput {
   law_id: string;
   /** @deprecated Use law_id instead */
+  document_id?: string;
+  /** @deprecated Use law_id instead */
   sfs_number?: string;
   include_articles?: boolean;
   reference_types?: string[];
@@ -39,7 +41,7 @@ export async function getEUBasis(
   db: Database,
   input: GetEUBasisInput
 ): Promise<ToolResponse<GetEUBasisResult>> {
-  const statuteId = input.law_id ?? input.sfs_number;
+  const statuteId = input.law_id ?? input.document_id ?? input.sfs_number;
 
   // Validate supported statute identifier format
   if (!statuteId || !/^(?:\d{4}:\d+|LOV-\d{4}-\d{2}-\d{2}-\d+)$/i.test(statuteId)) {

@@ -75,12 +75,11 @@ export async function searchEUImplementations(
     const searchTerm = `%${input.query.trim()}%`;
     sql += ` AND (
       ed.title LIKE ? OR
-      ed.title_no LIKE ? OR
       ed.short_name LIKE ? OR
       ed.celex_number LIKE ? OR
-      ed.description LIKE ?
+      ed.id LIKE ?
     )`;
-    params.push(searchTerm, searchTerm, searchTerm, searchTerm, searchTerm);
+    params.push(searchTerm, searchTerm, searchTerm, searchTerm);
   }
 
   // Filter by type
