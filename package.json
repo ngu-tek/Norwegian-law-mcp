@@ -44,7 +44,7 @@
     "postinstall": "test -d dist || npm run build || true"
   },
   "dependencies": {
-    "@ansvar/mcp-sqlite": "^1.0.3",
+    "@ansvar/mcp-sqlite": "^1.0.4",
     "@modelcontextprotocol/sdk": "^1.25.3"
   },
   "devDependencies": {
