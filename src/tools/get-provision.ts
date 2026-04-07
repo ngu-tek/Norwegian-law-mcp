@@ -5,6 +5,7 @@
 import type { Database } from '@ansvar/mcp-sqlite';
 import { normalizeAsOfDate } from '../utils/as-of-date.js';
 import { generateResponseMetadata, type ToolResponse } from '../utils/metadata.js';
+import { buildProvisionCitation } from '../utils/citation.js';
 
 export interface GetProvisionInput {
   document_id: string;
@@ -145,6 +146,15 @@ export async function getProvision(
       metadata: row.metadata ? JSON.parse(row.metadata) : null,
       cross_references: crossRefs,
     },
+    _citation: buildProvisionCitation(
+      row.document_id,
+      row.document_title || '',
+      row.provision_ref || '',
+      input.document_id,
+      input.section || input.provision_ref || '',
+      null,
+      null,
+    ),
     _metadata: generateResponseMetadata(db)
   };
 }
